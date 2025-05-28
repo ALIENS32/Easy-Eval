@@ -13,10 +13,14 @@ class ModelArgsConfig:
     making it easy to define and manage model parameters.
     """
     api_key: Optional[str] = field(
-        default="",
+        default=None,
     )
     api_key: Optional[str] = field(
-        default="",
+        default=None,
+    )
+    model: Optional[str] = field(
+        default=None,
+        metadata={"help": "The ID of the model to use for the request. E.g., 'gpt-4', 'gpt-3.5-turbo'."}
     )
     temperature: float = field(
         default=1e-6,
@@ -25,10 +29,6 @@ class ModelArgsConfig:
     max_tokens: Optional[int] = field(
         default=None,
         metadata={"help": "The maximum number of tokens to generate in the completion."}
-    )
-    model: Optional[str] = field(
-        default=None,
-        metadata={"help": "The ID of the model to use for the request. E.g., 'gpt-4', 'gpt-3.5-turbo'."}
     )
     stream: bool = field(
         default=False,

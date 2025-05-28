@@ -2,12 +2,18 @@ import os
 import re
 import json
 from typing import Any, Optional
+from datasets import load_dataset
 
 class Utils:
     """
     A utility class containing various helper methods for common tasks
     like data extraction, formatting, or other general operations.
     """
+    @staticmethod
+    def load_data(data_huggingface_name,split):
+        """加载数据集并转换为字典"""
+        dataset = load_dataset(data_huggingface_name, split=split, num_proc=10)
+        return {data["pid"]: data for data in dataset}
 
     @staticmethod
     def extract_json_data(response_text: str) -> Optional[Any]:
