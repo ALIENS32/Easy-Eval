@@ -15,12 +15,8 @@ class ModelArgsConfig:
     api_key: Optional[str] = field(
         default=None,
     )
-    api_key: Optional[str] = field(
+    base_url: Optional[str] = field(
         default=None,
-    )
-    model: Optional[str] = field(
-        default=None,
-        metadata={"help": "The ID of the model to use for the request. E.g., 'gpt-4', 'gpt-3.5-turbo'."}
     )
     temperature: float = field(
         default=1e-6,

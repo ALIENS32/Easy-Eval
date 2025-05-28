@@ -93,9 +93,8 @@ def eval_main(args):
 
     # Create ModelArgsConfig instance from parsed arguments, using 'evaluator' for the LLM model name
     model_args = asdict(ModelArgsConfig.from_argparse_args(args))
-    model_args["model"] = args.evaluator 
     try:
-        llm = LLM(model_args)
+        llm = LLM(args.evaluator,model_args)
         logging.info(f"LLM initialized with model arguments: {model_args}")
     except Exception as e:
         logging.critical(f"Failed to initialize LLM: {e}")
